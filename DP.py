@@ -1,17 +1,15 @@
 # %%
 
-from msilib.schema import Component
 import numpy as np  # type: ignore
 import pandas as pd  # type: ignore
 import scipy.stats as st  # type: ignore
 from typing import List, Dict, Tuple
 import numba
 from numba import float64, int64
-
+import matplotlib.pyplot as plt
 
 # %%
 # %%
-
 spec = [
 
     ("y", numba.typeof(np.array([1.0]))),
@@ -24,8 +22,6 @@ spec = [
     ("d", float64),
     ("initial_components", int64),
     ("iters", int64)
-
-
 ]
 
 @numba.experimental.jitclass(spec)
@@ -38,30 +34,30 @@ class DPGMM():
 
     Params:
 
-    y: np array of n x 1.
+    `y`: np array of length n.
 
-    sigma2: float, the prior of variance of `y_i`,
+    `sigma2`: float, the prior of variance of `y_i`,
         assuming `y_i | theta_i ~ N(theta_i, sigma^2)`.
 
-    m0: float, the prior mean of the mean of the base measure `G_0`: m.
+    `m0`: float, the prior mean of the mean of the base measure `G_0`: m.
 
-    D: float, the prior variance of the mean of the base measure `G_0`: m.
+    `D`: float, the prior variance of the mean of the base measure `G_0`: m.
 
-    a: float, the gamma prior parameter of
+    `a`: float, the gamma prior parameter of
         the variance of the base measure `G_0`: B.
 
-    b: float, the gamma prior parameter of
+    `b`: float, the gamma prior parameter of
         the variance of the base measure `G_0`: B.
 
-    c: float, the gamma prior parameter of
+    `c`: float, the gamma prior parameter of
         the scale parameter of the DP: M.
 
-    d: float, the gamma prior parameter of
+    `d`: float, the gamma prior parameter of
         the scale parameter of the DP: M.
 
-    initial_components: int, the number of the components at the inital.
+    `initial_components`: int, the number of the components at the inital.
 
-    iters: int, the size of posterior sample.
+    `iters`: int, the size of posterior sample.
 
     """
 
@@ -81,19 +77,14 @@ class DPGMM():
         self.initial_components = initial_components
         self.iters = iters
 
-        # set the hyper parameters need to be sampled
-        # m: the mean of `G_0`, B: the variance of `G_0`
-        # M: the scaled parameter, eta: the auxiliary variable
-        # self.hyperparams_list = ["m", "M", "B", "eta"]
-
     def initialize(self):
         """
         initialize the value of the parameters to be sampled.
 
         return:
-        hyperparms_value: the initial value of hyperparams
-        s: the initial value of class membership
-        theta: the initial value of class center
+        `hyperparms_value`: `[m, M, B, eta]`, the initial value of hyperparams
+        `s`: np.array of length `n`, the initial value of membership
+        `theta`: np.array of length `n`, np.array, the initial value of components center
         """
         m = np.random.normal(loc=self.m0, scale=np.sqrt(self.D))
         M = np.random.gamma(shape=self.c, scale=1 / self.d)
@@ -103,12 +94,6 @@ class DPGMM():
 
         # initialize the components membership
         s = np.random.choice(self.initial_components, len(self.y))
-        # since if we random sample n sample from 1:K
-        # the sample components id might be
-        # [0, 0, 1, 1, 1, 4, 4, 8]
-        # so we want to rearrange
-      # the sample components id to be
-        # [0, 0, 1, 1, 1, 2, 2, 3]
         s = self.rearrange_s(s)
         theta_star = np.random.normal(
             loc=m, scale=np.sqrt(B), size=self.initial_components)
@@ -119,6 +104,18 @@ class DPGMM():
         return hyperparams_value, s, theta
         
     def rearrange_s(self, s):
+        """
+        given a membership array s,
+        which may take form like [0, 0, 1, 1, 1, 4, 4, 8]
+        rearrange the membership array to be
+        [0, 0, 1, 1, 1, 2, 2, 3]
+
+        params:
+        `s`: np.array, the membership array
+
+        returns:
+        `s`: np.array, the rearranged array.
+        """
         s_unique = np.unique(s)
         for i in range(len(s_unique)):
             s[s == s_unique[i]] = i
@@ -126,26 +123,49 @@ class DPGMM():
 
     def sample(self) -> Tuple[np.array, np.array, np.array]:
 
+        '''
+        Implement the Gibbs sampler to obtain the posterior sample.
+
+        return:
+        `hyperparams_sample`: np.array of shape `(iters, 4)` related to 
+            `[m, M, B, eta]`.
+        `s_sample`: np.array of shape `(iters, n)` related to the membership
+            for each datapoints.
+        `theta_sample`: np.array of shape `(iters, n)` related to components
+            center for each datapoints.
+        '''
         hyperparams_value, s, theta = self.initialize()
-        hyperparams_sample = np.empty((self.iters, 4))
-        s_sample = np.empty((self.iters, len(self.y)))
-        theta_sample = np.empty((self.iters, len(self.y)))
-        print(s)
+        # hyperparams_value = [12, 0.1, 0.5, 1]
+        hyperparams_sample = np.empty((self.iters, 4), dtype = np.float64)
+        s_sample = np.empty((self.iters, len(self.y)), dtype = np.int64)
+        theta_sample = np.empty((self.iters, len(self.y)), dtype = np.float64)
 
         for i in range(self.iters): 
             s = self.update_s(s, 
                 hyperparams_value[0], hyperparams_value[1], hyperparams_value[2])
+            theta = self.update_theta(theta, s, hyperparams_value[0], hyperparams_value[2])
+            
 
-        return s
+            s_sample[i, :] = s
+            theta_sample[i, :] = theta
+
+            
+
+        return s_sample, theta_sample
 
     def update_s(self, s: np.array, m: float, M: float, B: float) -> np.array:
+        
+        """
+        The gibbs sampler for updating s the membership array.
+        """
 
         for i in range(len(s)):
             s_minus = np.delete(s, i)
             y_minus = np.delete(self.y, i)
             
-            components_minus = np.unique(s_minus)
             # the unique components id excluding y_i
+            components_minus = np.unique(s_minus)
+
             n_j_minus, v_j_minus, m_j_minus = \
             self.calculate_n_v_m_at_j(components_minus, s_minus, m, B, y_minus)
 
@@ -165,18 +185,34 @@ class DPGMM():
             s[i] = s_i
         
         # after update s, rearrange the id
-        s = self.rearrange_s(s) 
+        s = self.rearrange_s(s)
         return s 
     
-    def update_theta(self, theta, s, m, M, B):
+    def update_theta(self, theta: np.array, s: np.array, m: float, B: float):
+        """
+        The gibbs sampler for updating theta the components center array.
+        """
         components = np.unique(s)
-        n_j, v_j, m_j = self.calculate_n_v_m_at_j(components, s, m, B, self.y)
+        theta_star = np.zeros_like(components, dtype = np.float64)
 
-        for i in range(len(theta)):
-            pass
-            
+        for i in range(len(components)):
+            sum_y_j = self.y[s == components[i]].sum()
+            n_j = (s == components[i]).sum()
+            theta_mean = (self.sigma2*m + B*sum_y_j) / (self.sigma2 + B*n_j)
+
+            theta_var = (self.sigma2*B) / (self.sigma2 + B*n_j)
+            theta_star[i] = np.random.normal(loc = theta_mean,
+                                             scale = np.sqrt(theta_var))
+            theta[s == components[i]] = theta_star[i]
+        
+        return theta
                                          
     def calculate_n_v_m_at_j(self, components, s, m, B, y):
+        """
+        calculate some important statistics for updating s.
+        especially the mean(`m_j`) and variance(`v_j`) of center for each components
+        (excluding the ith data point).
+        """
 
         # the number of observations in each components
         n_j = np.array(
@@ -194,25 +230,35 @@ class DPGMM():
         return n_j, v_j, m_j
         
     def dnorm(self, x, mean, std):
+        """
+        since numba.jitclass does not support scipy.stat
+        a simple function to calculate the normal density
+        """
         return np.exp(-((x-mean)/std)**2/2) / (std * np.sqrt(2 * np.pi))
         
     def sample_by_prob(self, x, prob):
+        """
+        since numba.jitclass does not support np.random.choice
+            with argument `p`.
+        a simple function to implement sample with probability.
+        """
         cumprob = np.cumsum(prob)
         unif = np.random.rand()
         y = x[-1]
         for i in range(len(cumprob)):
             if unif < cumprob[i]:
                 y = x[i]
-            break
+                break
         return y
 
-
 # %%
-y = np.append(np.random.normal(loc = 1, size = 15), np.random.normal(loc = 4, size = 15))
+# %%
+
+y = np.append(np.random.normal(loc = 16, size = 50), np.random.normal(loc = 8, size = 50))
 a = DPGMM(y = y,
           sigma2=1.0, m0=2.5, D=1.0, a=1.0, b=1.0, c=1.0, d=1.0,
-          initial_components=2, iters=1000)
+          initial_components=2, iters=5000)
 a.initialize()
-a.sample()
-
+s, theta = a.sample()
 # %%
+
