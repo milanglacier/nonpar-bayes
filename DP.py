@@ -74,8 +74,7 @@ class DPGMM():
         return:
         `hyperparms_value`: `[m, M, B, eta]`, the initial value of hyperparams
         `s`: np.array of length `n`, the initial value of membership
-        `theta`: np.array of length `n`, np.array,
-            the initial value of components center
+        `theta`: np.array of length `n`, the initial value of components center
         """
         m = np.random.normal(loc=self.m0, scale=np.sqrt(self.D))
         M = np.random.gamma(shape=self.c, scale=1 / self.d)
@@ -216,6 +215,9 @@ class DPGMM():
 
     def update_hyperparams(self, theta: np.ndarray, m: float, M: float,
                            B: float, eta: float) -> np.ndarray:
+        """
+        The gibbs sampler for updating the hyperparams.
+        """
 
         theta_star = np.unique(theta)
         k = len(theta_star)
@@ -293,19 +295,20 @@ class DPGMM():
 
 # %%
 # %%
+if __name__ == "__main__":
 
-y = np.append(np.random.normal(loc=16, size=50),
-              np.random.normal(loc=9, size=50))
-a = DPGMM(y=y,
-          sigma2=1.0,
-          m0=2.5,
-          D=1.0,
-          a=1.0,
-          b=1.0,
-          c=1.0,
-          d=1.0,
-          initial_components=2,
-          iters=5000)
-a.initialize()
-hyperparams, s, theta = a.sample()
+    y = np.append(np.random.normal(loc=16, size=50),
+                  np.random.normal(loc=9, size=50))
+    a = DPGMM(y=y,
+              sigma2=1.0,
+              m0=2.5,
+              D=1.0,
+              a=1.0,
+              b=1.0,
+              c=1.0,
+              d=1.0,
+              initial_components=5,
+              iters=5000)
+    a.initialize()
+    hyperparams, s, theta = a.sample()
 # %%
