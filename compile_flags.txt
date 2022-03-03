@@ -1,0 +1,9 @@
+-falign-functions=64
+-Wall
+-g
+-O2
+-std=gnu++14
+-I
+/Library/Frameworks/R.framework/Versions/4.1-arm64/Resources/library/Rcpp/include
+-I
+/Library/Frameworks/R.framework/Resources/include
