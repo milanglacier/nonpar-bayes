@@ -124,7 +124,7 @@ and that of $\theta_1 vs \theta_2$ (coming from the same component).
 
 We can see that the autocorrelation for the sample is very low.
 The density plot shows that the MCMC chain has iterated over the entire
-sample space well, and $\theta_1 vs \theta_150$ are not that correlated,
+sample space well, and $\theta_1 vs \theta_{150}$ are not that correlated,
 and $\theta_1 vs \theta_2$ are highly linear correlated,
 both of which are under expectation.
 
@@ -180,7 +180,7 @@ cowplot::plot_grid(
 ```
 Figure \@ref(fig:startingexampleAvgtheta) shows the mean of the posterior sample of
 $\theta_j$ for each data point. 
-For the left plot, both x axis and  y axis is the observed value,
+For the left plot, both x axis and y axis is the observed value,
 resulting in a straight line. 
 For the right plot, the x axis is the mean of the posterior sample 
 of $\theta_j$ for each data point, the y axis is the observer value,

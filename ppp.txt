@@ -1,0 +1,348 @@
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.008  000.008: --- NVIM STARTING ---
+000.708  000.700: locale set
+001.102  000.394: inits 1
+001.117  000.015: window checked
+004.898  003.781: parsing arguments
+005.133  000.234: expanding arguments
+005.162  000.029: inits 2
+005.611  000.448: init highlight
+005.612  000.001: waiting for UI
+007.334  001.722: done waiting for UI
+007.338  000.004: init screen for UI
+007.357  000.019: init default mappings
+007.409  000.053: init default autocommands
+013.084  004.969  004.969: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/filetype.vim
+013.208  000.035  000.035: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/ftplugin.vim
+013.298  000.027  000.027: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/indent.vim
+014.844  001.454  001.454: sourcing /Users/northyear/.local/share/nvim/site/autoload/plug.vim
+019.990  000.645  000.645: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/ftoff.vim
+028.616  000.011  000.011: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/fusion.vim
+028.671  000.011  000.011: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/gdresource.vim
+028.721  000.012  000.012: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/gdscript.vim
+028.766  000.009  000.009: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/glimmer.vim
+028.811  000.009  000.009: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/glsl.vim
+028.856  000.010  000.010: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/gowork.vim
+028.906  000.014  000.014: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/graphql.vim
+028.954  000.013  000.013: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/hack.vim
+029.009  000.020  000.020: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/hcl.vim
+029.056  000.011  000.011: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/heex.vim
+029.104  000.013  000.013: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/hjson.vim
+029.152  000.011  000.011: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/json5.vim
+029.205  000.018  000.018: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/ledger.vim
+029.252  000.012  000.012: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/nix.vim
+029.300  000.012  000.012: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/prisma.vim
+029.347  000.012  000.012: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/pug.vim
+029.396  000.014  000.014: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/ql.vim
+029.451  000.020  000.020: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/query.vim
+029.502  000.016  000.016: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/surface.vim
+029.554  000.016  000.016: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/teal.vim
+029.605  000.014  000.014: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/tlaplus.vim
+029.655  000.015  000.015: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/yang.vim
+029.794  000.051  000.051: sourcing /Users/northyear/.local/share/nvim/plugged/vim-rmarkdown/ftdetect/rmarkdown.vim
+030.309  000.014  000.014: sourcing /Users/northyear/.local/share/nvim/plugged/LuaSnip/ftdetect/snippets.vim
+030.987  000.045  000.045: sourcing /Users/northyear/.local/share/nvim/plugged/Nvim-R/ftdetect/r.vim
+031.435  007.483  007.079: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/filetype.vim
+031.635  000.009  000.009: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/ftplugin.vim
+031.865  000.008  000.008: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/indent.vim
+032.187  000.059  000.059: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/synload.vim
+032.243  000.310  000.252: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/syntax.vim
+032.583  000.118  000.118: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/nosyntax.vim
+032.815  000.062  000.062: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/synload.vim
+032.857  000.442  000.262: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/syntax.vim
+037.445  002.118  002.118: sourcing /Users/northyear/.local/share/nvim/plugged/rose-pine/colors/rose-pine.vim
+037.583  000.079  000.079: sourcing /Users/northyear/.config/nvim/vim/conf_builtin_extend.vim
+044.339  000.045  000.045: sourcing /Users/northyear/.config/nvim/vim/conf_dsf.vim
+048.146  000.055  000.055: sourcing /Users/northyear/.config/nvim/vim/conf_pandoc.vim
+048.233  000.047  000.047: sourcing /Users/northyear/.config/nvim/vim/conf_nvim_tree.vim
+081.792  000.039  000.039: sourcing /Users/northyear/.config/nvim/vim/conf_nvim-R.vim
+081.866  000.041  000.041: sourcing /Users/northyear/.config/nvim/vim/conf_move_tabs.vim
+081.914  000.019  000.019: sourcing /Users/northyear/.config/nvim/vim/conf_cmdline.vim
+081.983  000.041  000.041: sourcing /Users/northyear/.config/nvim/vim/conf_mkdp.vim
+082.021  000.008  000.008: sourcing /Users/northyear/.config/nvim/vim/conf_sneak.vim
+092.208  084.658  066.785: sourcing /Users/northyear/.config/nvim/init.vim
+092.214  000.147: sourcing vimrc file(s)
+093.917  000.021  000.021: sourcing /Users/northyear/.local/share/nvim/plugged/nightfox.nvim/plugin/nightfox.vim
+094.642  000.023  000.023: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-colorizer.lua/plugin/colorizer.vim
+095.260  000.058  000.058: sourcing /Users/northyear/.local/share/nvim/plugged/FixCursorHold.nvim/plugin/fix_cursorhold_nvim.vim
+096.331  000.587  000.587: sourcing /Users/northyear/.local/share/nvim/plugged/vim-sneak/plugin/sneak.vim
+096.797  000.061  000.061: sourcing /Users/northyear/.local/share/nvim/plugged/regreplop.vim/plugin/regreplop.vim
+097.409  000.245  000.245: sourcing /Users/northyear/.local/share/nvim/plugged/vim-surround/plugin/surround.vim
+097.841  000.095  000.095: sourcing /Users/northyear/.local/share/nvim/plugged/vim-indent-object/plugin/indent-object.vim
+098.165  000.124  000.124: sourcing /Users/northyear/.local/share/nvim/plugged/targets.vim/plugin/targets.vim
+098.518  000.103  000.103: sourcing /Users/northyear/.local/share/nvim/plugged/dsf.vim/plugin/dsf.vim
+098.912  000.198  000.198: sourcing /Users/northyear/.local/share/nvim/plugged/indent-blankline.nvim/plugin/indent_blankline.vim
+099.694  000.490  000.490: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/plugin/nvim-treesitter.vim
+101.193  001.201  001.201: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter-textobjects/plugin/nvim-treesitter-textobjects.vim
+101.660  000.172  000.172: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-ts-rainbow/plugin/rainbow.vim
+102.049  000.024  000.024: sourcing /Users/northyear/.local/share/nvim/plugged/plenary.nvim/plugin/plenary.vim
+102.399  000.086  000.086: sourcing /Users/northyear/.local/share/nvim/plugged/telescope.nvim/plugin/telescope.vim
+102.874  000.074  000.074: sourcing /Users/northyear/.local/share/nvim/plugged/smartim/plugin/smartim.vim
+103.132  000.053  000.053: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-lspconfig/plugin/lspconfig.vim
+103.799  000.076  000.076: sourcing /Users/northyear/.local/share/nvim/plugged/lspsaga.nvim/plugin/lspsaga.vim
+104.158  000.133  000.133: sourcing /Users/northyear/.local/share/nvim/plugged/LuaSnip/plugin/luasnip.vim
+106.280  001.712  001.712: sourcing /Users/northyear/.local/share/nvim/plugged/vimcmdline/plugin/vimcmdline.vim
+107.333  000.931  000.931: sourcing /Users/northyear/.local/share/nvim/plugged/git-blame.nvim/plugin/gitblame.vim
+107.922  000.284  000.284: sourcing /Users/northyear/.local/share/nvim/plugged/neogit/plugin/neogit.vim
+110.090  001.785  001.785: sourcing /Users/northyear/.local/share/nvim/plugged/diffview.nvim/plugin/diffview.vim
+110.478  000.024  000.024: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-web-devicons/plugin/nvim-web-devicons.vim
+111.001  000.097  000.097: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/gzip.vim
+111.037  000.009  000.009: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/health.vim
+111.093  000.029  000.029: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/man.vim
+112.385  000.112  000.112: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+112.471  001.352  001.239: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/matchit.vim
+112.579  000.081  000.081: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/matchparen.vim
+112.814  000.208  000.208: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/netrwPlugin.vim
+112.955  000.013  000.013: sourcing /Users/northyear/.local/share/nvim/rplugin.vim
+112.957  000.112  000.099: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/rplugin.vim
+113.046  000.056  000.056: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/shada.vim
+113.094  000.014  000.014: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/spellfile.vim
+113.194  000.069  000.069: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/tarPlugin.vim
+113.274  000.048  000.048: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/tohtml.vim
+113.318  000.013  000.013: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/tutor.vim
+113.431  000.083  000.083: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/zipPlugin.vim
+114.271  000.442  000.442: sourcing /Users/northyear/.local/share/nvim/plugged/rooter.nvim/plugin/rooter_nvim.lua
+115.796  000.471  000.471: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-cmp/plugin/cmp.lua
+116.693  012.834: loading rtp plugins
+116.758  000.065: loading packages
+118.036  000.044  000.044: sourcing /Users/northyear/.local/share/nvim/plugged/cmp-nvim-lsp/after/plugin/cmp_nvim_lsp.lua
+118.541  000.414  000.414: sourcing /Users/northyear/.local/share/nvim/plugged/cmp-buffer/after/plugin/cmp_buffer.lua
+118.806  000.173  000.173: sourcing /Users/northyear/.local/share/nvim/plugged/cmp-path/after/plugin/cmp_path.lua
+119.075  000.169  000.169: sourcing /Users/northyear/.local/share/nvim/plugged/cmp-cmdline/after/plugin/cmp_cmdline.lua
+119.356  000.179  000.179: sourcing /Users/northyear/.local/share/nvim/plugged/cmp_luasnip/after/plugin/cmp_luasnip.lua
+119.359  001.622: loading after plugins
+119.365  000.006: inits 3
+121.050  001.685: reading ShaDa
+123.488  000.243  000.243: sourcing /Users/northyear/.local/share/nvim/plugged/vimcmdline/ftplugin/python_cmdline.vim
+124.200  000.045  000.045: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/autoload/provider/pythonx.vim
+143.966  000.171  000.171: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/autoload/remote/host.vim
+144.026  020.018  019.802: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/autoload/provider/python3.vim
+144.261  020.446  000.428: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/ftplugin/python.vim
+146.211  000.077  000.077: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/indent/python.vim
+148.812  000.133  000.133: sourcing /Users/northyear/.local/share/nvim/plugged/vim-pandoc-syntax/plugin/pandoc-syntax-check.vim
+150.101  000.088  000.088: sourcing /Users/northyear/.local/share/nvim/plugged/vimcmdline/ftplugin/python_cmdline.vim
+150.448  000.208  000.208: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/ftplugin/python.vim
+151.619  000.016  000.016: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/indent/python.vim
+152.499  000.277  000.277: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/python.vim
+193.096  050.558: opening buffers
+202.463  009.366: BufEnter autocommands
+202.470  000.007: editing files in windows
+203.115  000.645: VimEnter autocommands
+203.118  000.003: UIEnter autocommands
+203.732  000.173  000.173: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/autoload/provider/clipboard.vim
+203.737  000.446: before starting main loop
+227.121  023.385: first screen update
+227.127  000.006: --- NVIM STARTED ---
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.005  000.005: --- NVIM STARTING ---
+000.767  000.762: locale set
+001.230  000.463: inits 1
+001.246  000.016: window checked
+005.626  004.380: parsing arguments
+005.911  000.285: expanding arguments
+005.949  000.038: inits 2
+006.481  000.533: init highlight
+006.482  000.001: waiting for UI
+008.547  002.065: done waiting for UI
+008.562  000.014: init screen for UI
+008.582  000.020: init default mappings
+008.641  000.059: init default autocommands
+015.058  005.663  005.663: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/filetype.vim
+015.218  000.041  000.041: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/ftplugin.vim
+015.352  000.032  000.032: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/indent.vim
+017.736  002.242  002.242: sourcing /Users/northyear/.local/share/nvim/site/autoload/plug.vim
+024.300  000.930  000.930: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/ftoff.vim
+035.725  000.171  000.171: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/fusion.vim
+035.898  000.126  000.126: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/gdresource.vim
+036.022  000.079  000.079: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/gdscript.vim
+036.112  000.039  000.039: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/glimmer.vim
+036.190  000.035  000.035: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/glsl.vim
+036.264  000.035  000.035: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/gowork.vim
+036.338  000.036  000.036: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/graphql.vim
+036.412  000.038  000.038: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/hack.vim
+036.487  000.037  000.037: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/hcl.vim
+036.556  000.032  000.032: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/heex.vim
+036.627  000.035  000.035: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/hjson.vim
+036.695  000.032  000.032: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/json5.vim
+036.768  000.036  000.036: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/ledger.vim
+036.839  000.033  000.033: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/nix.vim
+036.910  000.035  000.035: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/prisma.vim
+036.980  000.034  000.034: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/pug.vim
+037.056  000.040  000.040: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/ql.vim
+037.139  000.047  000.047: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/query.vim
+037.211  000.035  000.035: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/surface.vim
+037.282  000.035  000.035: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/teal.vim
+037.354  000.037  000.037: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/tlaplus.vim
+037.428  000.036  000.036: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/ftdetect/yang.vim
+037.732  000.172  000.172: sourcing /Users/northyear/.local/share/nvim/plugged/vim-rmarkdown/ftdetect/rmarkdown.vim
+038.105  000.162  000.162: sourcing /Users/northyear/.local/share/nvim/plugged/LuaSnip/ftdetect/snippets.vim
+038.392  000.171  000.171: sourcing /Users/northyear/.local/share/nvim/plugged/Nvim-R/ftdetect/r.vim
+038.933  008.283  006.715: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/filetype.vim
+039.361  000.010  000.010: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/ftplugin.vim
+039.986  000.009  000.009: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/indent.vim
+040.681  000.062  000.062: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/synload.vim
+040.748  000.671  000.610: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/syntax.vim
+041.521  000.251  000.251: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/nosyntax.vim
+041.776  000.075  000.075: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/synload.vim
+041.820  000.888  000.562: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/syntax.vim
+046.255  000.243  000.243: sourcing /Users/northyear/.local/share/nvim/plugged/everforest/autoload/everforest.vim
+051.583  005.914  005.671: sourcing /Users/northyear/.local/share/nvim/plugged/everforest/colors/everforest.vim
+051.729  000.077  000.077: sourcing /Users/northyear/.config/nvim/vim/conf_builtin_extend.vim
+063.323  000.052  000.052: sourcing /Users/northyear/.config/nvim/vim/conf_dsf.vim
+070.399  000.068  000.068: sourcing /Users/northyear/.config/nvim/vim/conf_pandoc.vim
+070.481  000.047  000.047: sourcing /Users/northyear/.config/nvim/vim/conf_nvim_tree.vim
+124.376  000.038  000.038: sourcing /Users/northyear/.config/nvim/vim/conf_nvim-R.vim
+124.449  000.038  000.038: sourcing /Users/northyear/.config/nvim/vim/conf_move_tabs.vim
+124.495  000.019  000.019: sourcing /Users/northyear/.config/nvim/vim/conf_cmdline.vim
+124.566  000.044  000.044: sourcing /Users/northyear/.config/nvim/vim/conf_mkdp.vim
+124.602  000.008  000.008: sourcing /Users/northyear/.config/nvim/vim/conf_sneak.vim
+142.753  133.925  108.851: sourcing /Users/northyear/.config/nvim/init.vim
+142.761  000.195: sourcing vimrc file(s)
+144.437  000.161  000.161: sourcing /Users/northyear/.local/share/nvim/plugged/nightfox.nvim/plugin/nightfox.vim
+144.949  000.154  000.154: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-colorizer.lua/plugin/colorizer.vim
+145.209  000.153  000.153: sourcing /Users/northyear/.local/share/nvim/plugged/FixCursorHold.nvim/plugin/fix_cursorhold_nvim.vim
+146.507  001.066  001.066: sourcing /Users/northyear/.local/share/nvim/plugged/vim-sneak/plugin/sneak.vim
+146.810  000.188  000.188: sourcing /Users/northyear/.local/share/nvim/plugged/regreplop.vim/plugin/regreplop.vim
+147.497  000.569  000.569: sourcing /Users/northyear/.local/share/nvim/plugged/vim-surround/plugin/surround.vim
+147.864  000.222  000.222: sourcing /Users/northyear/.local/share/nvim/plugged/vim-indent-object/plugin/indent-object.vim
+148.208  000.238  000.238: sourcing /Users/northyear/.local/share/nvim/plugged/targets.vim/plugin/targets.vim
+148.538  000.228  000.228: sourcing /Users/northyear/.local/share/nvim/plugged/dsf.vim/plugin/dsf.vim
+149.040  000.378  000.378: sourcing /Users/northyear/.local/share/nvim/plugged/indent-blankline.nvim/plugin/indent_blankline.vim
+150.029  000.878  000.878: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter/plugin/nvim-treesitter.vim
+151.531  001.390  001.390: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-treesitter-textobjects/plugin/nvim-treesitter-textobjects.vim
+152.047  000.414  000.414: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-ts-rainbow/plugin/rainbow.vim
+152.272  000.104  000.104: sourcing /Users/northyear/.local/share/nvim/plugged/plenary.nvim/plugin/plenary.vim
+152.599  000.229  000.229: sourcing /Users/northyear/.local/share/nvim/plugged/telescope.nvim/plugin/telescope.vim
+152.919  000.177  000.177: sourcing /Users/northyear/.local/share/nvim/plugged/smartim/plugin/smartim.vim
+153.181  000.145  000.145: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-lspconfig/plugin/lspconfig.vim
+153.598  000.180  000.180: sourcing /Users/northyear/.local/share/nvim/plugged/lspsaga.nvim/plugin/lspsaga.vim
+153.925  000.231  000.231: sourcing /Users/northyear/.local/share/nvim/plugged/LuaSnip/plugin/luasnip.vim
+155.322  001.225  001.225: sourcing /Users/northyear/.local/share/nvim/plugged/vimcmdline/plugin/vimcmdline.vim
+157.206  001.766  001.766: sourcing /Users/northyear/.local/share/nvim/plugged/git-blame.nvim/plugin/gitblame.vim
+158.041  000.708  000.708: sourcing /Users/northyear/.local/share/nvim/plugged/neogit/plugin/neogit.vim
+161.664  003.521  003.521: sourcing /Users/northyear/.local/share/nvim/plugged/diffview.nvim/plugin/diffview.vim
+162.034  000.160  000.160: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-web-devicons/plugin/nvim-web-devicons.vim
+162.584  000.115  000.115: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/gzip.vim
+162.620  000.008  000.008: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/health.vim
+162.675  000.030  000.030: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/man.vim
+163.967  000.111  000.111: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+164.054  001.353  001.241: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/matchit.vim
+164.164  000.082  000.082: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/matchparen.vim
+164.403  000.212  000.212: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/netrwPlugin.vim
+164.557  000.013  000.013: sourcing /Users/northyear/.local/share/nvim/rplugin.vim
+164.561  000.125  000.112: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/rplugin.vim
+164.657  000.065  000.065: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/shada.vim
+164.712  000.017  000.017: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/spellfile.vim
+164.817  000.070  000.070: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/tarPlugin.vim
+164.898  000.050  000.050: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/tohtml.vim
+164.944  000.015  000.015: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/tutor.vim
+165.058  000.085  000.085: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/zipPlugin.vim
+166.269  000.811  000.811: sourcing /Users/northyear/.local/share/nvim/plugged/rooter.nvim/plugin/rooter_nvim.lua
+168.028  000.705  000.705: sourcing /Users/northyear/.local/share/nvim/plugged/nvim-cmp/plugin/cmp.lua
+168.922  007.936: loading rtp plugins
+168.987  000.064: loading packages
+169.614  000.175  000.175: sourcing /Users/northyear/.local/share/nvim/plugged/cmp-nvim-lsp/after/plugin/cmp_nvim_lsp.lua
+170.712  001.007  001.007: sourcing /Users/northyear/.local/share/nvim/plugged/cmp-buffer/after/plugin/cmp_buffer.lua
+171.219  000.414  000.414: sourcing /Users/northyear/.local/share/nvim/plugged/cmp-path/after/plugin/cmp_path.lua
+171.842  000.527  000.527: sourcing /Users/northyear/.local/share/nvim/plugged/cmp-cmdline/after/plugin/cmp_cmdline.lua
+172.301  000.356  000.356: sourcing /Users/northyear/.local/share/nvim/plugged/cmp_luasnip/after/plugin/cmp_luasnip.lua
+172.303  000.838: loading after plugins
+172.308  000.006: inits 3
+174.098  001.790: reading ShaDa
+177.954  000.294  000.294: sourcing /Users/northyear/.local/share/nvim/plugged/Nvim-R/R/setcompldir.vim
+178.420  000.178  000.178: sourcing /Users/northyear/.local/share/nvim/plugged/Nvim-R/R/nvimrcom.vim
+178.675  000.176  000.176: sourcing /Users/northyear/.local/share/nvim/plugged/Nvim-R/R/unix.vim
+178.797  000.072  000.072: sourcing /Users/northyear/.local/share/nvim/plugged/Nvim-R/R/nvimbuffer.vim
+178.815  002.145  001.424: sourcing /Users/northyear/.local/share/nvim/plugged/Nvim-R/R/common_global.vim
+178.861  002.368  000.223: sourcing /Users/northyear/.local/share/nvim/plugged/Nvim-R/R/common_buffer.vim
+179.108  000.200  000.200: sourcing /Users/northyear/.local/share/nvim/plugged/Nvim-R/R/bibcompl.vim
+181.826  005.579  003.011: sourcing /Users/northyear/.local/share/nvim/plugged/Nvim-R/ftplugin/rmd_nvimr.vim
+182.254  000.194  000.194: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/ftplugin/rmd.vim
+183.830  000.140  000.140: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/indent/r.vim
+183.873  000.316  000.176: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/indent/rmd.vim
+186.296  000.147  000.147: sourcing /Users/northyear/.local/share/nvim/plugged/vim-pandoc-syntax/plugin/pandoc-syntax-check.vim
+186.699  000.191  000.191: sourcing /Users/northyear/.local/share/nvim/plugged/markdown-preview.nvim/plugin/mkdp.vim
+187.680  000.021  000.021: sourcing /Users/northyear/.local/share/nvim/plugged/Nvim-R/R/common_global.vim
+187.721  000.097  000.076: sourcing /Users/northyear/.local/share/nvim/plugged/Nvim-R/R/common_buffer.vim
+187.757  000.004  000.004: sourcing /Users/northyear/.local/share/nvim/plugged/Nvim-R/R/bibcompl.vim
+190.644  003.056  002.955: sourcing /Users/northyear/.local/share/nvim/plugged/Nvim-R/ftplugin/rmd_nvimr.vim
+190.969  000.157  000.157: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/ftplugin/rmd.vim
+192.218  000.010  000.010: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/indent/r.vim
+192.227  000.157  000.148: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/indent/rmd.vim
+193.922  000.147  000.147: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/javascript.vim
+195.362  001.233  001.233: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/vb.vim
+206.801  011.270  011.270: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/css.vim
+209.001  015.780  003.130: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/html.vim
+215.530  006.343  006.343: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/tex.vim
+217.321  000.089  000.089: sourcing /Users/northyear/.local/share/nvim/plugged/Nvim-R/R/functions.vim
+217.379  000.887  000.798: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/r.vim
+218.316  000.439  000.439: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/yaml.vim
+218.516  025.737  002.287: sourcing /Users/northyear/.local/share/nvim/plugged/vim-pandoc-syntax/syntax/pandoc.vim
+218.599  025.919  000.181: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/rmd.vim
+227.511  000.710  000.710: sourcing /Users/northyear/.local/share/nvim/plugged/vim-rmarkdown/ftplugin/rmarkdown.vim
+231.201  000.133  000.133: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/javascript.vim
+232.658  001.267  001.267: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/vb.vim
+245.751  012.866  012.866: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/css.vim
+248.137  017.626  003.359: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/html.vim
+254.910  006.551  006.551: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/tex.vim
+256.076  000.016  000.016: sourcing /Users/northyear/.local/share/nvim/plugged/Nvim-R/R/functions.vim
+256.137  000.533  000.518: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/r.vim
+257.125  000.522  000.522: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/yaml.vim
+257.301  027.063  001.832: sourcing /Users/northyear/.local/share/nvim/plugged/vim-pandoc-syntax/syntax/pandoc.vim
+257.876  000.012  000.012: sourcing /Users/northyear/.local/share/nvim/plugged/Nvim-R/R/functions.vim
+257.933  000.488  000.476: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/r.vim
+258.502  000.299  000.299: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/python.vim
+258.566  028.590  000.739: sourcing /Users/northyear/.local/share/nvim/plugged/vim-rmarkdown/syntax/rmarkdown.vim
+260.737  000.010  000.010: sourcing /Users/northyear/.local/share/nvim/plugged/Nvim-R/R/common_global.vim
+260.781  000.092  000.081: sourcing /Users/northyear/.local/share/nvim/plugged/Nvim-R/R/common_buffer.vim
+260.821  000.006  000.006: sourcing /Users/northyear/.local/share/nvim/plugged/Nvim-R/R/bibcompl.vim
+263.928  003.282  003.184: sourcing /Users/northyear/.local/share/nvim/plugged/Nvim-R/ftplugin/rmd_nvimr.vim
+264.315  000.178  000.178: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/ftplugin/rmd.vim
+265.662  000.013  000.013: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/indent/r.vim
+265.673  000.157  000.144: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/indent/rmd.vim
+267.500  000.134  000.134: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/javascript.vim
+268.957  001.276  001.276: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/vb.vim
+282.501  013.385  013.385: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/css.vim
+284.953  018.138  003.343: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/html.vim
+291.833  006.627  006.627: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/tex.vim
+293.022  000.015  000.015: sourcing /Users/northyear/.local/share/nvim/plugged/Nvim-R/R/functions.vim
+293.081  000.539  000.524: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/r.vim
+293.991  000.444  000.444: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/yaml.vim
+294.173  027.633  001.885: sourcing /Users/northyear/.local/share/nvim/plugged/vim-pandoc-syntax/syntax/pandoc.vim
+294.263  027.816  000.183: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/rmd.vim
+296.240  000.011  000.011: sourcing /Users/northyear/.local/share/nvim/plugged/Nvim-R/R/common_global.vim
+296.288  000.095  000.084: sourcing /Users/northyear/.local/share/nvim/plugged/Nvim-R/R/common_buffer.vim
+296.329  000.008  000.008: sourcing /Users/northyear/.local/share/nvim/plugged/Nvim-R/R/bibcompl.vim
+299.580  003.431  003.328: sourcing /Users/northyear/.local/share/nvim/plugged/Nvim-R/ftplugin/rmd_nvimr.vim
+299.970  000.178  000.178: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/ftplugin/rmd.vim
+301.273  000.012  000.012: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/indent/r.vim
+301.283  000.151  000.139: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/indent/rmd.vim
+302.964  000.132  000.132: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/javascript.vim
+304.405  001.265  001.265: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/vb.vim
+317.819  013.258  013.258: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/css.vim
+320.265  017.953  003.298: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/html.vim
+327.079  006.593  006.593: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/tex.vim
+328.276  000.015  000.015: sourcing /Users/northyear/.local/share/nvim/plugged/Nvim-R/R/functions.vim
+328.334  000.539  000.524: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/r.vim
+329.248  000.442  000.442: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/yaml.vim
+329.427  027.365  001.838: sourcing /Users/northyear/.local/share/nvim/plugged/vim-pandoc-syntax/syntax/pandoc.vim
+329.514  027.537  000.172: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/rmd.vim
+331.328  029.483: opening buffers
+344.651  013.323: BufEnter autocommands
+344.661  000.010: editing files in windows
+345.237  000.576: VimEnter autocommands
+345.255  000.018: UIEnter autocommands
+345.759  000.171  000.171: sourcing /opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/autoload/provider/clipboard.vim
+345.766  000.340: before starting main loop
+367.440  021.675: first screen update
+367.445  000.005: --- NVIM STARTED ---
