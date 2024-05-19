@@ -12,16 +12,18 @@ from numba import float64, int64
 #         ("m0", float64), ("D", float64), ("a", float64), ("b", float64),
 #         ("c", float64), ("d", float64), ("initial_components", int64),
 
-spec = [("y", numba.typeof(np.array([[1.0, 1.0], [1.0, 1.0]]))),
-        ("x", numba.typeof(np.array([[1.0, 1.0], [1.0, 1.0]]))),
-        ("M", float64),
-        ("mu", numba.typeof(np.array([[1.0, 1.0], [1.0, 1.0]]))),
-        ("initial_components", int64),
-        ("iters", int64)]
+spec = [
+    ("y", numba.typeof(np.array([[1.0, 1.0], [1.0, 1.0]]))),
+    ("x", numba.typeof(np.array([[1.0, 1.0], [1.0, 1.0]]))),
+    ("M", float64),
+    ("mu", numba.typeof(np.array([[1.0, 1.0], [1.0, 1.0]]))),
+    ("initial_components", int64),
+    ("iters", int64),
+]
 
 
 # @numba.experimental.jitclass(spec)
-class ANOVADDP():
+class ANOVADDP:
     """
     ANOVA DDP model
 
@@ -46,9 +48,15 @@ class ANOVADDP():
 
     """
 
-    def __init__(self, y: np.ndarray, x: np.ndarray,
-                 mu: np.ndarray, M: float,
-                 initial_components: int, iters: int) -> None:
+    def __init__(
+        self,
+        y: np.ndarray,
+        x: np.ndarray,
+        mu: np.ndarray,
+        M: float,
+        initial_components: int,
+        iters: int,
+    ) -> None:
         self.y = y
         self.x = x
         self.mu = mu
@@ -73,12 +81,10 @@ class ANOVADDP():
         s = self.rearrange_s(s)
 
         # initialize the corresponding center for each data point
-        theta_star = np.random.normal(loc=self.mu,
-                                      size=[self.initial_components,
-                                            self.mu.shape[0],
-                                            self.mu.shape[1]
-                                            ]
-                                      )
+        theta_star = np.random.normal(
+            loc=self.mu,
+            size=[self.initial_components, self.mu.shape[0], self.mu.shape[1]],
+        )
         theta = np.zeros([self.y.shape[0], self.mu.shape[0], self.mu.shape[1]])
 
         for i in range(self.y.shape[0]):
@@ -106,7 +112,7 @@ class ANOVADDP():
         return s
 
     def sample(self) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
-        '''
+        """
         Implement the Gibbs sampler to obtain the posterior sample.
 
         return:
@@ -120,25 +126,21 @@ class ANOVADDP():
             sample from the predictive sample of newx,
             where newx has h values.
 
-        '''
+        """
         s, theta = self.initialize()
         s_sample = np.empty((self.iters, self.y.shape[0]), dtype=np.int64)
-        theta_sample = np.empty((self.iters,
-                                 self.y.shape[0],
-                                 self.mu.shape[0],
-                                 self.mu.shape[1]),
-                                dtype=np.float64)
+        theta_sample = np.empty(
+            (self.iters, self.y.shape[0], self.mu.shape[0], self.mu.shape[1]),
+            dtype=np.float64,
+        )
 
-        newx = np.array([
-            [1, 1, 0, 1, 0],
-            [1, 0, 1, 1, 0],
-            [1, 1, 0, 0, 1],
-            [1, 0, 1, 0, 1]
-        ])
+        newx = np.array(
+            [[1, 1, 0, 1, 0], [1, 0, 1, 1, 0], [1, 1, 0, 0, 1], [1, 0, 1, 0, 1]]
+        )
 
-        newy_sample = np.empty((self.iters,
-                                newx.shape[0],
-                                self.y.shape[1]), dtype=np.float64)
+        newy_sample = np.empty(
+            (self.iters, newx.shape[0], self.y.shape[1]), dtype=np.float64
+        )
 
         for i in range(self.iters):
 
@@ -153,8 +155,7 @@ class ANOVADDP():
 
         return s_sample, theta_sample, newy_sample
 
-    def update_s(self, s: np.ndarray,
-                 theta: np.ndarray) -> np.ndarray:
+    def update_s(self, s: np.ndarray, theta: np.ndarray) -> np.ndarray:
         """
         The gibbs sampler for updating s the membership array.
         """
@@ -179,42 +180,37 @@ class ANOVADDP():
 
             yi0 = self.y[i, 0]
             mu_i0_at_each_group = mu_i_at_each_group[:, 0]
-            density_i0_at_each_group = self.dnorm(yi0,
-                                                  mean=mu_i0_at_each_group,
-                                                  std=1)
+            density_i0_at_each_group = self.dnorm(yi0, mean=mu_i0_at_each_group, std=1)
 
             # get the density of y[:, 1]
 
             yi1 = self.y[i, 1]
             mu_i1_at_each_group = mu_i_at_each_group[:, 1]
-            density_i1_at_each_group = self.dnorm(yi1,
-                                                  mean=mu_i1_at_each_group,
-                                                  std=1)
-            density_at_each_group = n_j_minus * (density_i0_at_each_group
-                                                 * density_i1_at_each_group)
+            density_i1_at_each_group = self.dnorm(yi1, mean=mu_i1_at_each_group, std=1)
+            density_at_each_group = n_j_minus * (
+                density_i0_at_each_group * density_i1_at_each_group
+            )
 
             # the probability that s_i will form a new group
 
             mu_i_overall = self.mu @ self.x[i, :]
-            density_yi_new_group = (self.M *
-                                    self.dnorm(
-                                        self.y[i, :], mean=mu_i_overall, std=4)
-                                    .prod()
-                                    )
+            density_yi_new_group = (
+                self.M * self.dnorm(self.y[i, :], mean=mu_i_overall, std=4).prod()
+            )
 
             # bind the two group and normalize
 
             prob_belongs_to_j_or_new_group = np.append(
-                density_at_each_group, density_yi_new_group)
+                density_at_each_group, density_yi_new_group
+            )
 
-            prob_belongs_to_j_or_new_group = (prob_belongs_to_j_or_new_group
-                                              / prob_belongs_to_j_or_new_group.sum())
+            prob_belongs_to_j_or_new_group = (
+                prob_belongs_to_j_or_new_group / prob_belongs_to_j_or_new_group.sum()
+            )
 
-            groups_add_new = np.append(s_unique_minus,
-                                       s_unique_minus.max() + 1)
+            groups_add_new = np.append(s_unique_minus, s_unique_minus.max() + 1)
 
-            s_i = self.sample_by_prob(groups_add_new,
-                                      prob_belongs_to_j_or_new_group)
+            s_i = self.sample_by_prob(groups_add_new, prob_belongs_to_j_or_new_group)
 
             s[i] = s_i
 
@@ -232,11 +228,9 @@ class ANOVADDP():
                 return idx[0]
         return -1
 
-    def update_theta(self,
-                     theta: np.ndarray,
-                     s: np.ndarray) -> Tuple[np.ndarray,
-                                             np.ndarray,
-                                             np.ndarray]:
+    def update_theta(
+        self, theta: np.ndarray, s: np.ndarray
+    ) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
         """
         The gibbs sampler for updating theta the components center array.
 
@@ -251,9 +245,9 @@ class ANOVADDP():
         """
         s_unique = np.unique(s)
 
-        theta_star = np.empty((s_unique.shape[0],
-                               self.mu.shape[0],
-                               self.mu.shape[1]), dtype=np.float64)
+        theta_star = np.empty(
+            (s_unique.shape[0], self.mu.shape[0], self.mu.shape[1]), dtype=np.float64
+        )
 
         for s_idx in s_unique:
 
@@ -271,20 +265,24 @@ class ANOVADDP():
             mu_0 = self.mu[0, :]
             mu_1 = self.mu[1, :]
 
-            mean_theta_star_j_0 = (inv(inv(Sigma_alpha) + x_group_j.T @ x_group_j) @
-                                   (inv(Sigma_alpha) @ mu_0 + x_group_j.T @ y0_group_j))
+            mean_theta_star_j_0 = inv(inv(Sigma_alpha) + x_group_j.T @ x_group_j) @ (
+                inv(Sigma_alpha) @ mu_0 + x_group_j.T @ y0_group_j
+            )
 
-            mean_theta_star_j_1 = (inv(inv(Sigma_alpha) + x_group_j.T @ x_group_j) @
-                                   (inv(Sigma_alpha) @ mu_1 + x_group_j.T @ y1_group_j))
+            mean_theta_star_j_1 = inv(inv(Sigma_alpha) + x_group_j.T @ x_group_j) @ (
+                inv(Sigma_alpha) @ mu_1 + x_group_j.T @ y1_group_j
+            )
 
             # posterior covmat of theta
             Sigma_alpha_after = inv(inv(Sigma_alpha) + x_group_j.T @ x_group_j)
 
-            theta_star_j_0 = np.random.multivariate_normal(mean=mean_theta_star_j_0,
-                                                           cov=Sigma_alpha_after)
+            theta_star_j_0 = np.random.multivariate_normal(
+                mean=mean_theta_star_j_0, cov=Sigma_alpha_after
+            )
 
-            theta_star_j_1 = np.random.multivariate_normal(mean=mean_theta_star_j_1,
-                                                           cov=Sigma_alpha_after)
+            theta_star_j_1 = np.random.multivariate_normal(
+                mean=mean_theta_star_j_1, cov=Sigma_alpha_after
+            )
 
             theta_star_j = np.array([theta_star_j_0, theta_star_j_1])
             theta_star[s_idx, :, :] = theta_star_j
@@ -312,9 +310,7 @@ class ANOVADDP():
             and p is the dimension of y
         """
 
-        prob_select_group_j = (
-            np.array([(s == i).sum() for i in s_unique])
-        )
+        prob_select_group_j = np.array([(s == i).sum() for i in s_unique])
 
         prob_added_new = np.append(prob_select_group_j, self.M)
         prob_added_new = prob_added_new / prob_added_new.sum()
@@ -357,7 +353,7 @@ class ANOVADDP():
         since numba.jitclass does not support scipy.stat
         a simple function to calculate the normal density
         """
-        return np.exp(-((x - mean) / std)**2 / 2) / (std * np.sqrt(2 * np.pi))
+        return np.exp(-(((x - mean) / std) ** 2) / 2) / (std * np.sqrt(2 * np.pi))
 
     def sample_by_prob(self, x: np.ndarray, prob: np.ndarray) -> int:
         """
@@ -385,13 +381,14 @@ if __name__ == "__main__":
     y = np.array(y).T
     x = pd.read_csv("d.csv")
     x = np.array(x).T
-    mu = np.array([
-        [3, 1.25, 8.5/2, -3.5/2, -3.5/2],
-        [1, 13.5/2, 13.5/2, 15.5/2, 9.5/2]
-    ])
+    mu = np.array(
+        [
+            [3, 1.25, 8.5 / 2, -3.5 / 2, -3.5 / 2],
+            [1, 13.5 / 2, 13.5 / 2, 15.5 / 2, 9.5 / 2],
+        ]
+    )
 
-    anovaddp = ANOVADDP(y=y, x=x, M=0.001, iters=1000,
-                        mu=mu, initial_components=2)
+    anovaddp = ANOVADDP(y=y, x=x, M=0.001, iters=1000, mu=mu, initial_components=2)
     s, theta = anovaddp.initialize()
     s = anovaddp.update_s(s, theta)
     theta = anovaddp.update_theta(theta, s)
