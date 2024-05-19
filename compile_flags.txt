@@ -4,6 +4,6 @@
 -O2
 -std=gnu++14
 -I
-/Library/Frameworks/R.framework/Versions/4.1-arm64/Resources/library/Rcpp/include
+/Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/library/Rcpp/include
 -I
 /Library/Frameworks/R.framework/Resources/include
